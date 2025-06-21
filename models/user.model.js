@@ -1,13 +1,14 @@
 import mongoose, { Schema,model } from "mongoose";
 
-//Create Schema
-//Create Models
+//step 1:  Create Schema
+//step 2: Create Model
 
+//create  Schema:data structure
 const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      Required: [true, "User Name is required"],
+      required: [true, "User Name is required"],
       trim: true,
       minLength: 2,
       maxLength: 50,
@@ -17,7 +18,7 @@ const userSchema = new mongoose.Schema(
       required: [true, "User Email is Required"],
       unique: true,
       lowercase: true,
-      match: [/\S+@\S+\.\\S+/, "Please provide valid email id"],
+      match: [/\S+@\S+\.\S+/, "Please provide valid email id"],
     },
     password: {
       type: String,
@@ -28,6 +29,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+//Model:Using schema structure
 const userModel = mongoose.model("userModel", userSchema);
 
 export default userModel;

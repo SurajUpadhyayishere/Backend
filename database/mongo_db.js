@@ -8,6 +8,7 @@ if (!MONGODB_URL) {
   );
 }
 
+//Connect URL of MongoDB  
 const ConnectToDatabase = async () => {
   try {
     await mongoose.connect(MONGODB_URL);
